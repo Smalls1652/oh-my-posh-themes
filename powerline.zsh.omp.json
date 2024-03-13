@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "shell",
+          "style": "diamond",
+          "foreground": "#193549",
+          "background": "#A1F7E5",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " \uebca zsh {{ .Version }} "
+        },
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#516BEB",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "\uf109 CPU: {{ round .PhysicalPercentUsed .Precision }}% | \udb80\udf5b MEM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB"
+        },
+        {
+          "type": "executiontime",
+          "style": "diamond",
+          "foreground": "#193549",
+          "background": "#f7fca9",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "\uf43a {{ .FormattedMs }}",
+          "properties": {
+            "style": "round",
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "foreground": "#193549",
+          "background": "#FFB86C",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "\uf1d2 {{ .HEAD }}"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "foreground": "#F8F8F2",
+          "background": "#0087D8",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " \uf413  {{ .Path }} ",
+          "properties": {
+            "style": "full"
+          }
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#F8F8F2",
+          "background": "#039E90",
+          "background_templates": [
+            "{{ if .Root }}#ff8080{{ end }}"
+          ],
+          "template": ">"
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#ff8080",
+          "template": " \ue20f ",
+          "interactive": true
+        }
+      ]
+    }
+  ]
+}
